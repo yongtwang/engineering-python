@@ -1,2 +1,5 @@
-# engineering-python
-This GitHub repository (http://github.com/yongtwang/engineering-python) hosts the Jupyter Notebooks and Python source code for **Engineering Python (a.k.a., Python Programming for Engineers)** open course on YouTube (http://youtube.com/yongtwang).
+# Engineering Python
+
+Welcome to Engineering Python. This is a Python programming course for engineers.
+
+This GitHub repository hosts the Jupyter Notebooks and Python source code for the open course on YouTube (http://youtube.com/yongtwang).

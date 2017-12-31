@@ -1,4 +1,4 @@
-# engineering-python
+# Engineering Python
 
 Welcome to Engineering Python. This is a Python programming course for engineers.
 

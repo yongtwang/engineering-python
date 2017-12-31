@@ -1,0 +1,6 @@
+Course ID, Course Name, Credit Hours, Letter Grade
+ISE211, Engineering Economics, 4, B+
+ISE295, Undergraduate Seminars, 1, C
+ISE314, Computer Programming for Engineers, 4, A
+ISE364, Engineering Project Managemnt, 3, A-
+ISE420, Operations Research, 4, A

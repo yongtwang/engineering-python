@@ -1,5 +1,5 @@
 # The api for fixer.io has changed so the original program currency.py as described in the original tutorial video https://www.youtube.com/watch?v=srsc0nCKMrw will no longer work.
-# This version fixed the error and works for the new fixer.io api. You must register at least a free account and replace the api_key in line 19
+# This version fixed the error and works for the new fixer.io api. You must register at least a free account and replace the access_key in line 19
 # I'd like to thank Ron Fredericks for providing this fix
 
 from currency_gui import *

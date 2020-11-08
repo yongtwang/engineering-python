@@ -1,5 +1,10 @@
+# The api for fixer.io has changed so the original program currency.py as described in the original tutorial video https://www.youtube.com/watch?v=srsc0nCKMrw will no longer work.
+# This version fixed the error and works for the new fixer.io api. You must register at least a free account and replace the api_key in line 19
+# I'd like to thank Ron Fredericks for providing this fix
+
 from currency_gui import *
 import urllib3  # An HTTP client. Installed with Anaconda.
+import json
 urllib3.disable_warnings()
 
 def signals(self):
@@ -12,20 +17,23 @@ def signals(self):
 def download(self):
     http = urllib3.PoolManager()  # A PoolManager handles all of the details of connection pooling
     try:
-        r = http.request('GET', 'https://api.fixer.io/latest?base=USD', retries=False)  # Rates are quoted against the base (USD).
-        #print(r.data)  # For debugging
+        r = http.request('GET', 'http://data.fixer.io/api/latest?access_key=396c72203e9a26a6d0cb2ad64bc4e3a6&format=1', retries=False)  # Rates are quoted against the default base (EUR).
+        # Replace this access_key with your own one
+        # To get an access_key, you need to register a free account at fixer.io
+
         data = r.data.decode('ascii')
-        #print()  # For debugging
-        #print(data)  # For debugging
-        #print('Download Successfully!')  # For debugging
+        print('Download Successfully!')  # For debugging
         self.actionDownload_Rates.setEnabled(False)  # Disable this menu to avoid downloading again
         r.close()
 
-        data = eval(data)  # To be safer, you may use: import ast; ast.literal_eval(data)
+        data = json.loads(data)
         self.rates = data['rates']
-        self.rates['USD'] = 1.0
-        #print(self.rates)  # For debugging
         for key, value in self.rates.items():
+            # Manage default base rate: EUR for free fixer account
+            baseIndex = self.comboBox_1.findText(data['base'])
+            self.comboBox_1.setCurrentIndex(baseIndex)
+            self.comboBox_2.setCurrentIndex(baseIndex)
+
             self.comboBox_1.addItem(key)
             self.comboBox_2.addItem(key)
     except urllib3.exceptions.NewConnectionError:

@@ -30,7 +30,7 @@ X = np.arange(1, xnum)
 Y = np.arange(1, ynum)
 Y, X = np.meshgrid(Y, X)
 Z = mat[1:, 1:]
-Z = Z.astype(np.float)
+Z = Z.astype(float) # Revised on 11/7/2023
 
 
 # Plot the data.

@@ -35,18 +35,23 @@ for p in paths:
         except:
             continue
 
-        if rate > 10:
-            color_class = 5
-        elif rate > 8:
-            color_class = 4
-        elif rate > 6:
-            color_class = 3
-        elif rate > 4:
-            color_class = 2
-        elif rate > 2:
-            color_class = 1
+        if len(rate) > 0: # Lines 38-54 Revised on 11/12/2023
+            rate_value = rate[0]
+            if rate_value > 10:
+                color_class = 5
+            elif rate_value > 8:
+                color_class = 4
+            elif rate_value > 6:
+                color_class = 3
+            elif rate_value > 4:
+                color_class = 2
+            elif rate_value > 2:
+                color_class = 1
+            else:
+                color_class = 0
         else:
-            color_class = 0
+            # Handle the case when the rate is not available for the current county
+            color_class = 0  # You can set it to a default color class or do something else
 
         color = colors[color_class]
         p['style'] = path_style.format(0.1, color)

@@ -20,7 +20,8 @@ def generate(self):
         else:
             eval('self.pushButton_'+str(i+1)+'.setEnabled(False)')
         eval('self.pushButton_'+str(i+1)+'.setText("?")')  # Reset the text of every button
-        self.progressBar.setValue((i+1)/30*100)
+        progress = int((i+1)/30*100)  # Revised on 11/25/2023; must be int
+        self.progressBar.setValue(progress)
         time.sleep(0.05)  # Pause for 0.05 seconds. Otherwise the progressbar is filled too fast
 
 def pick(self):
